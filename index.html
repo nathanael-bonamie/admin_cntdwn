@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html style="height:100%; margin:0; padding:0">
+<head>
+  <title>Countdown for break</title>
+  <link rel = "icon" href =  "https://img.icons8.com/ios/50/000000/timer.png" type = "image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+</head>
+  
+<body>
+  <div class="navbar">
+    <div class="dropdown">
+      <button onclick="openMenu()" class="dropbtn">Setup 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div id="myDropdown" class="dropdown-content">
+        <a onclick="settings('39 heures')">39 h</a>
+        <a onclick="settings('44 heures')">44 h</a>
+        <a onclick="set('En congés')">Congés</a>
+        <a onclick="set('Chômage partiel')">Chômage</a>
+        <a onclick="what()">?</a>
+      </div>
+    </div> 
+  </div>
+
+  <p class="sanssautdeligne" id="demo"></p>
+  <dialog id="favdialog">
+    <label for="start">Choose date:</label>
+    <input type="date" id="datePiker" name="trip-start">
+  </dialog>
+</body>
+</html>
