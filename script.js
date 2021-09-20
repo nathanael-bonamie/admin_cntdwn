@@ -186,7 +186,7 @@ function settings(setup){
 			}
 		}
 	  else{
-		  alert(this.status)
+		  alert(this.status);
 	  }
 	};
 
