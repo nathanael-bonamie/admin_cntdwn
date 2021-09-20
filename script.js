@@ -171,7 +171,7 @@ function settings(setup){
 	let dat=new Date();;
 	let form= { day: 'numeric', month: 'short', year: 'numeric'};
 	let xmlhttp = new XMLHttpRequest();
-	let jwtoken = "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";
+	let jwtoken = "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";
 	let sha = sessionStorage.getItem("sha");
 	let content = btoa(setup);
 
