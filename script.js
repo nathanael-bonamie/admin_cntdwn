@@ -167,7 +167,7 @@ function set(opt){
 }
 	
 function settings(setup){
-	sessionStorage.setItem("howStart",setup);
+	sessionStorage.setItem("txt",setup);
 	let dat=new Date();;
 	let form= { day: 'numeric', month: 'short', year: 'numeric'};
 	let xmlhttp = new XMLHttpRequest();
