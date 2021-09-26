@@ -20,7 +20,6 @@ var x = setInterval(function() {
   var distance = countDownDate - now;
     
   // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -54,7 +53,7 @@ var x = setInterval(function() {
 		dt.getDay()>4 ? document.getElementById("demo").innerHTML ="<span class='color-blue'>"+(h<10 ? "0":"")+h+":"+(m<10 ? "0":"")+m+":"+(s<10 ? "0":"")+s+"</span><br>"+
 		"<span class='color-green'>Week-end</span>" : 
 		document.getElementById("demo").innerHTML ="<span class='color-blue'>"+(h<10 ? "0":"")+h+":"+(m<10 ? "0":"")+m+":"+(s<10 ? "0":"")+s+"</span><br>"+
-		"Shift ended";
+		"<span class='color-green'>Fin de journée</span>";
 	}
 	}
   
@@ -131,27 +130,6 @@ else{countDownDate=0;
 }
 }
 
-function what(){
-	alert(sessionStorage.getItem("txt")+" configur\351es");
-}
-
-function openMenu() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-
 function set(opt){
 	var favdialog=document.getElementById('favdialog');
 	favdialog.show();
@@ -192,15 +170,15 @@ function settings(setup){
 
 	xmlhttp.open(
 	  "PUT",
-	  "https://api.github.com/repos/nathanael-bonamie/admin_cntdwn/contents/find_setup.txt",
+	  "https://api.github.com/repos/nathanael-bonamie/countdown/contents/how.txt",
 	  false);
 	xmlhttp.setRequestHeader('Authorization', 'Bearer ' + jwtoken);
 	xmlhttp.send(JSON.stringify({"message":"update time :"+dat.toLocaleDateString(undefined, form),"content":content,"sha":sha}));
 	}
 
-let xmlhttp = new XMLHttpRequest();								//interroge le contenu de find-setup.txt dès l'ouverture
-xmlhttp.onreadystatechange = function () {							//récupère le SHA et le stocke en session
-  if (this.readyState == 4 && this.status == 200) {					//récupère le contenu et décode la base64
+let xmlhttp = new XMLHttpRequest();				//interroge le contenu de find-setup.txt dès l'ouverture
+xmlhttp.onreadystatechange = function () {			//récupère le SHA et le stocke en session
+  if (this.readyState == 4 && this.status == 200) {		//récupère le contenu et décode la base64
   
     var sha=JSON.parse(this.responseText).sha;
 	sessionStorage.setItem("sha",sha);
@@ -231,6 +209,6 @@ xmlhttp.onreadystatechange = function () {							//récupère le SHA et le stock
 
 xmlhttp.open(
   "GET",
-  "https://api.github.com/repos/nathanael-bonamie/admin_cntdwn/contents/find_setup.txt",
+  "https://api.github.com/repos/nathanael-bonamie/countdown/contents/how.txt",
   false);
 xmlhttp.send();
