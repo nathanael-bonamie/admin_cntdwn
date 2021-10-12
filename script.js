@@ -29,7 +29,12 @@ function setDate(opt){
 	var months = ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."];
 	favdialog.close();
 	let dec=encodeURIComponent(escape(opt));
-	settings(opt+"<br>reprise le "+jour+" "+months[mois]);
+	if (opt=="Rtt"){
+		settings(opt);
+	}
+	else{
+		settings(opt+"<br>reprise le "+jour+" "+months[mois]);
+	}
 	});
 }
 	
