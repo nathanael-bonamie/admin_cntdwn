@@ -48,7 +48,7 @@ function settings(setup){
 
 	xmlhttp.onreadystatechange = function () {
 	  if (this.readyState == 4 && this.status == 200){
-		var r=alert(setup+" configur\351es");
+		var r=alert(setup+" configurées");
 			if (!r){
 				location.reload();
 			}
