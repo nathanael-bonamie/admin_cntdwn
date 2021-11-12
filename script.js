@@ -23,7 +23,7 @@ function setDate(opt){
 	var favdialog=document.getElementById('favdialog');
 	favdialog.show();
 	document.getElementById("datePiker").addEventListener("change", function() {
-    var dateEntered = new Date(this.value);
+    	var dateEntered = new Date(this.value);
 	var jour=dateEntered.getDate();
 	var mois=dateEntered.getMonth();
 	var months = ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."];
@@ -44,7 +44,8 @@ function settings(setup){
 	let xmlhttp = new XMLHttpRequest();
 	let jwtoken = "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";
 	let sha = sessionStorage.getItem("sha");
-	let content = btoa(setup);
+	let contenu = unescape(encodeURIComponent(setup));
+	contenu = btoa(contenu);
 
 	xmlhttp.onreadystatechange = function () {
 	  if (this.readyState == 4 && this.status == 200){
@@ -56,9 +57,7 @@ function settings(setup){
 				alert('Echec de la configuration');
 			}
 		}
-	  else{
-		alert(this.status);
-	  }
+
 	};
 
 	xmlhttp.open(
@@ -66,5 +65,5 @@ function settings(setup){
 	  "https://api.github.com/repos/nathanael-bonamie/countdown/contents/how.txt",
 	  false);
 	xmlhttp.setRequestHeader('Authorization', 'Bearer ' + jwtoken);
-	xmlhttp.send(JSON.stringify({"message":"update time :"+dat.toLocaleDateString(undefined, form),"content":content,"sha":sha}));
+	xmlhttp.send(JSON.stringify({"message":"update time :"+dat.toLocaleDateString(undefined, form),"content":contenu,"sha":sha}));
 	}
